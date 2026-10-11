@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@theme {
+  --color-cream: #0d0e12; --color-surface: #171920; --color-leaf: #21242c;
+  --color-ink: #f2eee6; --color-brand: #e9b44c; --color-brand-dark: #c9922a; --color-gold: #e9b44c;
+  --color-stone-100: #21242c; --color-stone-200: #2a2d37; --color-stone-300: #3a3e4a;
+  --color-stone-500: #9a9ca8; --color-stone-600: #b3b5c0; --color-stone-700: #cdcfd8;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+html { color-scheme: dark; scroll-behavior: smooth; scroll-padding-top: 5rem; }
+@layer base { *, ::after, ::before { border-color: var(--color-stone-200); } }
+body { @apply bg-cream text-ink font-sans antialiased; }
+h1, h2, h3 { font-family: var(--font-display); }
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 font-semibold transition duration-200 active:scale-95 disabled:opacity-50; }
+.btn-primary, .btn-wa { @apply bg-gradient-to-r from-[#f3c968] to-[#d99a2b] text-black shadow-lg shadow-brand/20 hover:brightness-110 hover:-translate-y-0.5; }
+.btn-ghost { @apply border border-stone-300 bg-surface text-ink hover:border-brand hover:text-brand; }
+.input { @apply w-full rounded-xl border border-stone-300 bg-surface px-4 py-2.5 text-ink outline-none transition placeholder:text-stone-500 focus:border-brand focus:ring-2 focus:ring-brand/20; }
+.chip { @apply rounded-full border border-stone-300 bg-surface px-4 py-1.5 text-sm font-medium text-stone-700 transition hover:border-brand; }
+.chip-on { @apply border-brand bg-brand text-black hover:border-brand; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes float { 0%,100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+@keyframes pulse2 { 50% { opacity: .5; } }
+.fade-up { animation: fadeUp .7s ease both; }
+.float { animation: float 6s ease-in-out infinite; }
+.skeleton { animation: pulse2 1.4s ease-in-out infinite; @apply bg-stone-200; }
